@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aulix | Clases particulares con Máximo Ruiz</title>
+<meta name="description" content="Clases particulares con Máximo Ruiz: primaria, secundaria, secundaria técnica e ingreso a la facultad. Matemática, Física, Química, Inglés y más. Presenciales y virtuales. Escribinos por WhatsApp.">
+<meta name="theme-color" content="#14284A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aulix | Clases particulares con Máximo Ruiz">
+<meta property="og:description" content="Clases particulares con Máximo Ruiz: primaria, secundaria, secundaria técnica e ingreso a la facultad. Matemática, Física, Química, Inglés y más. Presenciales y virtuales. Escribinos por WhatsApp.">
+<meta property="og:locale" content="es_AR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314284A'/%3E%3Ctext x='32' y='46' font-family='monospace' font-size='40' font-weight='700' text-anchor='middle' fill='%23FFC93C'%3Ex%3C/text%3E%3C/svg%3E">
+<style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Concepto: hoja cuadriculada de cuaderno + pizarra. El héroe resuelve una ecuación paso a paso, igual que las clases. */
+:root{
+  --bg:#F5F8FD; --bg2:#E7F0FB; --fg:#14284A; --muted:#4B6080;
+  --grid:rgba(20,40,74,.07); --board:#14284A; --board-fg:#F7F2E6;
+  --yellow:#FFC93C; --blue:#8EC3F7; --coral:#EE6A45; --card:#FFFFFF; --line:rgba(20,40,74,.22);
+  --wa:#1FA855; --wa-fg:#FFFFFF;
+  --f-display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1B33; --bg2:#142645; --fg:#EAF1FB; --muted:#9DB2D1;
+  --grid:rgba(142,195,247,.08); --board:#08122A; --board-fg:#F7F2E6;
+  --yellow:#FFD24F; --blue:#8EC3F7; --coral:#FF8059; --card:#16294B; --line:rgba(234,241,251,.25);
+  --wa:#2BC46A; --wa-fg:#06210F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1B33; --bg2:#142645; --fg:#EAF1FB; --muted:#9DB2D1;
+  --grid:rgba(142,195,247,.08); --board:#08122A; --board-fg:#F7F2E6;
+  --yellow:#FFD24F; --blue:#8EC3F7; --coral:#FF8059; --card:#16294B; --line:rgba(234,241,251,.25);
+  --wa:#2BC46A; --wa-fg:#06210F; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{
+  background-color:var(--bg); color:var(--fg); font-family:var(--f-body); font-size:17px; line-height:1.55;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 96px;
+}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+/* header */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:38px;height:38px;border-radius:9px;background:var(--board);color:var(--yellow);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:20px;border:2px solid var(--fg)}
+.logo-word{font-family:var(--f-display);font-weight:800;font-size:26px;letter-spacing:-.03em}
+nav.links{display:flex;gap:22px;font-weight:500;font-size:15px}
+nav.links a{text-decoration:none;padding-block:6px;border-bottom:2px solid transparent}
+nav.links a:hover{border-color:var(--coral)}
+@media (max-width:640px){nav.links{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--fg);cursor:pointer;font-family:var(--f-body);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:var(--wa-fg);border-color:var(--wa)}
+.btn-ghost{background:transparent;color:var(--fg)}
+.btn svg{width:22px;height:22px;flex:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:36px 64px}
+.hero h1{font-size:clamp(40px,7vw,78px);margin-block:14px 20px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--yellow) 62% 92%,transparent 92%);padding-inline:2px}
+.hero .lead{max-width:48ch;font-size:19px;color:var(--muted)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.tag{font-family:var(--f-mono);font-size:12.5px;font-weight:700;padding:6px 10px;border:1.5px solid var(--line);border-radius:6px;background:var(--card)}
+.board{background:var(--board);color:var(--board-fg);border-radius:18px;padding:22px 24px 26px;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--yellow);min-width:0}
+.board-bar{display:flex;gap:7px;margin-bottom:18px}
+.board-bar i{width:11px;height:11px;border-radius:50%;background:var(--coral)}
+.board-bar i:nth-child(2){background:var(--yellow)}.board-bar i:nth-child(3){background:var(--blue)}
+.board-title{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:14px}
+.step{font-family:var(--f-mono);font-weight:700;font-size:clamp(20px,3.6vw,30px);padding:9px 12px;border-radius:8px;display:flex;justify-content:space-between;gap:12px;opacity:.55;transition:opacity .3s,background .3s}
+.step small{font-size:12px;font-weight:500;opacity:.8;align-self:center;text-align:right}
+.step.on{opacity:1;background:rgba(255,255,255,.1)}
+.step.final.on{background:var(--yellow);color:#14284A}
+@media (max-width:860px){.hero{grid-template-columns:1fr}}
+
+/* sections */
+section{padding-block:56px}
+.sec-head{display:grid;gap:12px;margin-bottom:28px;max-width:60ch}
+.sec-head h2{font-size:clamp(32px,5vw,52px)}
+.sec-head p{color:var(--muted)}
+
+/* subjects */
+.panel{background:var(--card);border:2px solid var(--fg);border-radius:18px;overflow:hidden}
+.tabs{display:flex;flex-wrap:wrap;border-bottom:2px solid var(--fg);background:var(--bg2)}
+.tab{flex:1 1 150px;padding:16px 14px;font:700 15px var(--f-body);color:var(--fg);background:transparent;border:0;border-right:2px solid var(--fg);cursor:pointer;text-align:left;display:grid;gap:2px}
+.tab:last-child{border-right:0}
+.tab span{font:500 12px var(--f-mono);color:var(--muted);letter-spacing:.04em}
+.tab[aria-selected="true"]{background:var(--yellow);color:#14284A}
+.tab[aria-selected="true"] span{color:#14284A}
+.pane{padding:28px;display:grid;gap:22px}
+.pane h3{font-size:clamp(26px,4vw,38px)}
+.pane .desc{color:var(--muted);max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:700 15.5px var(--f-body);padding:11px 16px;border-radius:10px;border:2px solid var(--fg);background:var(--bg);color:var(--fg);cursor:pointer;transition:transform .12s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--board);color:var(--board-fg)}
+.chip[aria-pressed="true"]::before{content:"✓ ";color:var(--yellow)}
+.pane-foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:20px}
+.pane-foot .hint{color:var(--muted);font-size:14.5px;flex:1 1 240px}
+
+/* modalidades */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.mode{border:2px solid var(--fg);border-radius:16px;padding:24px;background:var(--card);display:grid;gap:10px;align-content:start}
+.mode:nth-child(1){background:var(--blue);color:#14284A}
+.mode:nth-child(3){background:var(--yellow);color:#14284A}
+.mode h3{font-size:26px}
+.mode p{font-size:15.5px}
+.mode:nth-child(1) p,.mode:nth-child(3) p{color:#14284A}
+.mode svg{width:34px;height:34px}
+
+/* pasos */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border:2px solid var(--fg);border-radius:18px;overflow:hidden;background:var(--card)}
+.flow li{list-style:none;padding:28px;border-right:2px solid var(--fg);display:grid;gap:10px;align-content:start}
+.flow li:last-child{border-right:0}
+.flow .n{font-family:var(--f-mono);font-weight:700;font-size:13px;background:var(--coral);color:#fff;width:fit-content;padding:4px 9px;border-radius:6px}
+.flow h3{font-size:24px}
+.flow p{color:var(--muted);font-size:15.5px}
+.flow{padding:0;margin:0}
+@media (max-width:700px){.flow li{border-right:0;border-bottom:2px solid var(--fg)}.flow li:last-child{border-bottom:0}}
+
+/* contacto */
+.contact{background:var(--board);color:var(--board-fg);border-radius:22px;padding:clamp(28px,5vw,56px);border:3px solid var(--fg);display:grid;gap:22px;box-shadow:8px 8px 0 var(--coral)}
+.contact h2{font-size:clamp(32px,5.5vw,60px);color:var(--yellow)}
+.contact .phone{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,9vw,84px);letter-spacing:-.03em;line-height:1;user-select:all;word-break:break-word}
+.contact .row{display:flex;gap:12px;flex-wrap:wrap}
+.contact .btn-ghost{color:var(--board-fg);border-color:var(--board-fg)}
+.contact .alt{opacity:.85;font-size:15.5px}
+.contact .alt a{color:var(--yellow);font-weight:700}
+
+footer{padding-block:34px 10px;color:var(--muted);font-size:14.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* flotante */
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--board);color:var(--board-fg);padding:10px 16px;border-radius:10px;font-weight:700;font-size:14.5px;z-index:30;border:2px solid var(--yellow)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.200-1.400A10 10 0 1 0 12 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path fill="currentColor" d="M16.500 14.400c-.3-.2-1.700-.8-2-.9-.3-.1-.5-.1-.7.2l-.9 1.100c-.2.2-.3.2-.6.1a6.700 6.700 0 0 1-3.300-2.900c-.3-.4.3-.4.8-1.400.1-.2 0-.4 0-.5l-.9-2.100c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.200s.9 2.500 1 2.700c.1.2 1.800 2.800 4.400 3.900 1.600.7 2.300.7 3.100.6.5-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.4z"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#inicio" aria-label="Aulix, inicio">
+      <span class="logo-mark" aria-hidden="true">x</span>
+      <span class="logo-word">Aulix</span>
+    </a>
+    <nav class="links" aria-label="Secciones">
+      <a href="#materias">Materias</a>
+      <a href="#modalidad">Modalidad</a>
+      <a href="#como">Cómo empezar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Clases particulares · Presenciales y virtuales</p>
+        <h1>Entendé la materia, <em>paso a paso</em>.</h1>
+        <p class="lead">Clases con Máximo Ruiz para primaria, secundaria, secundaria técnica e ingreso a la facultad. Explicaciones claras y ejercicios resueltos hasta que lo entiendas.</p>
+        <div class="cta-row">
+          <a class="btn btn-wa" id="cta-hero" href="https://wa.me/5492644478789" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+          <a class="btn btn-ghost" href="#materias">Ver materias</a>
+        </div>
+        <div class="tags">
+          <span class="tag">Exámenes y previas</span>
+          <span class="tag">Horarios flexibles</span>
+          <span class="tag">A tu ritmo</span>
+        </div>
+      </div>
+
+      <div class="board" aria-label="Ejemplo de una ecuación resuelta paso a paso">
+        <div class="board-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="board-title">Así se resuelve en clase</p>
+        <div class="step on"><span>2x + 4 = 10</span><small>el problema</small></div>
+        <div class="step"><span>2x = 10 − 4</span><small>pasamos el 4</small></div>
+        <div class="step"><span>2x = 6</span><small>restamos</small></div>
+        <div class="step final"><span>x = 3</span><small>listo</small></div>
+      </div>
+    </div>
+
+    <section id="materias">
+      <div class="sec-head">
+        <p class="eyebrow">Qué se enseña</p>
+        <h2>Elegí tu nivel y marcá las materias</h2>
+        <p>Tocá las materias que necesitás y el botón de WhatsApp lleva tu consulta ya escrita.</p>
+      </div>
+
+      <div class="panel">
+        <div class="tabs" role="tablist" aria-label="Nivel">
+          <button class="tab" role="tab" id="t-primaria" aria-selected="true" aria-controls="pane" data-lvl="primaria">Primaria<span>todas las materias</span></button>
+          <button class="tab" role="tab" id="t-secundaria" aria-selected="false" aria-controls="pane" data-lvl="secundaria">Secundaria<span>las que más cuestan</span></button>
+          <button class="tab" role="tab" id="t-tecnica" aria-selected="false" aria-controls="pane" data-lvl="tecnica">Secundaria técnica<span>técnicas y de siempre</span></button>
+          <button class="tab" role="tab" id="t-ingreso" aria-selected="false" aria-controls="pane" data-lvl="ingreso">Ingreso a la facultad<span>matemática de ingreso</span></button>
+        </div>
+        <div class="pane" id="pane" role="tabpanel">
+          <h3 id="pane-title"></h3>
+          <p class="desc" id="pane-desc"></p>
+          <div class="chips" id="chips"></div>
+          <div class="pane-foot">
+            <p class="hint" id="hint">Podés elegir más de una materia.</p>
+            <a class="btn btn-wa" id="cta-pane" href="https://wa.me/5492644478789" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modalidad">
+      <div class="sec-head">
+        <p class="eyebrow">Modalidad</p>
+        <h2>Donde y cuando te quede mejor</h2>
+      </div>
+      <div class="modes">
+        <div class="mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          <h3>Clases virtuales</h3>
+          <p>Aprendé desde tu casa, sin moverte, con pizarra y ejercicios en pantalla.</p>
+        </div>
+        <div class="mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13M2 19h20M8 9h8M8 13h5"/></svg>
+          <h3>Clases presenciales</h3>
+          <p>Atención personalizada, con paciencia y al ritmo de cada alumno.</p>
+        </div>
+        <div class="mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15l2 2 4-4"/></svg>
+          <h3>Exámenes y previas</h3>
+          <p>Preparación para rendir, con horarios flexibles que se adaptan a tu fecha.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="como">
+      <div class="sec-head">
+        <p class="eyebrow">Cómo empezar</p>
+        <h2>De la duda a la clase en tres pasos</h2>
+      </div>
+      <ol class="flow">
+        <li><span class="n">PASO 1</span><h3>Escribinos</h3><p>Mandá un mensaje por WhatsApp o por privado en TikTok con la materia y el nivel.</p></li>
+        <li><span class="n">PASO 2</span><h3>Coordinamos</h3><p>Acordamos modalidad, día y horario según tu fecha de examen o tu ritmo.</p></li>
+        <li><span class="n">PASO 3</span><h3>Primera clase</h3><p>Se explica paso a paso y se resuelven ejercicios hasta que lo entiendas.</p></li>
+      </ol>
+    </section>
+
+    <section id="contacto">
+      <div class="contact">
+        <p class="eyebrow" style="color:var(--blue)">Contacto</p>
+        <h2>¿Hablamos?</h2>
+        <p class="phone mono-free" id="phone">264-447-8789</p>
+        <div class="row">
+          <a class="btn btn-wa" id="cta-contact" href="https://wa.me/5492644478789" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Abrir WhatsApp</a>
+          <button class="btn btn-ghost" id="copy" type="button">Copiar número</button>
+        </div>
+        <p class="alt">También por privado en TikTok: <a href="https://www.tiktok.com/@maxsteel5848" target="_blank" rel="noopener">@maxsteel5848</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span><strong>Aulix</strong> · Clases particulares con Máximo Ruiz</span>
+    <span>Primaria · Secundaria · Técnica · Ingreso</span>
+  </footer>
+</div>
+
+<a class="btn btn-wa fab" id="cta-fab" href="https://wa.me/5492644478789" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+<div class="toast" id="toast" hidden role="status">Número copiado</div>
+
+<script>
+(function(){
+  var NUM="5492644478789";
+  var DATA={
+    primaria:{n:"Primaria",t:"Ayuda con la tarea",d:"Clases particulares con paciencia y a su ritmo, en todas las materias. Presenciales o virtuales.",s:["Matemática","Lengua","Ciencias Naturales","Ciencias Sociales","Inglés","Informática"]},
+    secundaria:{n:"Secundaria",t:"Las materias que más cuestan",d:"Explicaciones claras y ejercicios resueltos hasta que lo entiendas. También exámenes y previas.",s:["Matemática","Física","Química","Biología","Geografía","Historia","Lengua y Literatura","Inglés","Informática","Análisis Matemático"]},
+    tecnica:{n:"Secundaria técnica",t:"Materias de la técnica",d:"Ayuda con las materias técnicas y con las de siempre. Presenciales o virtuales.",s:["Dibujo técnico","Tecnología de los materiales","Matemática","Física","Informática","Análisis Matemático"]},
+    ingreso:{n:"Ingreso a la facultad",t:"Matemática de ingreso",d:"Prepará el ingreso a la facultad a tu ritmo, con clases presenciales y virtuales.",s:["Álgebra","Ecuaciones","Funciones","Trigonometría","Geometría","y más"]}
+  };
+  var lvl="primaria", sel=[];
+  var tabs=[].slice.call(document.querySelectorAll(".tab"));
+  var chips=document.getElementById("chips");
+  var ctas=["cta-hero","cta-pane","cta-contact","cta-fab"].map(function(i){return document.getElementById(i)});
+
+  function msg(){
+    var d=DATA[lvl], m="Hola Máximo, vi la página de Aulix.";
+    if(sel.length){m+=" Quiero consultar por clases de "+sel.join(", ")+" ("+d.n+").";}
+    else{m+=" Quiero consultar por clases particulares ("+d.n+").";}
+    return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);
+  }
+  function refreshLinks(){
+    var u=msg();
+    ctas.forEach(function(a){a.href=u});
+    document.getElementById("hint").textContent= sel.length ? "Tu consulta: "+sel.join(", ")+"." : "Podés elegir más de una materia.";
+  }
+  function render(){
+    var d=DATA[lvl];
+    document.getElementById("pane-title").textContent=d.t;
+    document.getElementById("pane-desc").textContent=d.d;
+    document.getElementById("pane").setAttribute("aria-labelledby","t-"+lvl);
+    chips.innerHTML="";
+    d.s.forEach(function(s){
+      var b=document.createElement("button");
+      b.type="button"; b.className="chip"; b.textContent=s;
+      b.setAttribute("aria-pressed", sel.indexOf(s)>-1?"true":"false");
+      if(s==="y más"){b.disabled=true;b.style.opacity=".6";b.style.cursor="default";}
+      b.addEventListener("click",function(){
+        var i=sel.indexOf(s);
+        if(i>-1){sel.splice(i,1)}else{sel.push(s)}
+        b.setAttribute("aria-pressed", i>-1?"false":"true");
+        refreshLinks();
+      });
+      chips.appendChild(b);
+    });
+    tabs.forEach(function(t){t.setAttribute("aria-selected", t.dataset.lvl===lvl?"true":"false")});
+    refreshLinks();
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click",function(){ if(lvl!==t.dataset.lvl){lvl=t.dataset.lvl;sel=[];render();} });
+  });
+  render();
+
+  /* ecuación animada */
+  var steps=[].slice.call(document.querySelectorAll(".step")), k=0;
+  var reduce=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function show(i){steps.forEach(function(s,j){s.classList.toggle("on",j<=i && (j===i||false) || j===i)}); }
+  if(reduce){steps.forEach(function(s){s.classList.add("on")});}
+  else{setInterval(function(){k=(k+1)%steps.length;show(k)},1800);}
+
+  /* copiar */
+  var toast=document.getElementById("toast");
+  function flash(t){toast.textContent=t;toast.hidden=false;setTimeout(function(){toast.hidden=true},1800)}
+  document.getElementById("copy").addEventListener("click",function(){
+    var txt="264-447-8789";
+    try{
+      navigator.clipboard.writeText(txt).then(function(){flash("Número copiado")},function(){sel2()});
+    }catch(e){sel2()}
+    function sel2(){
+      var r=document.createRange();r.selectNodeContents(document.getElementById("phone"));
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);flash("Seleccionado, copialo");
+    }
+  });
+})();
+</script>
+</body>
+</html>
